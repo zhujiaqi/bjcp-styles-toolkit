@@ -1,0 +1,16 @@
+# 生成的含官方正文/译文的本地产物 —— 绝不提交
+*.db
+*.db-journal
+*.csv
+data/
+translations/
+web/*.html
+public/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# 凭据与临时
+REVIEW_*
+.DS_Store
