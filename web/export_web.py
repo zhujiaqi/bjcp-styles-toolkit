@@ -57,24 +57,24 @@ TEMPLATE = r"""<!DOCTYPE html>
 <style>
 :root{--amber:#8a5a1f;--amber2:#c98f3d;--bg:#faf6ef;--card:#fffdf8;--line:#e8dcc6;--ink:#2f2413;--muted:#8a7a5c;}
 *{box-sizing:border-box;}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);}
+body{margin:0;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);}
 header{background:linear-gradient(135deg,#6b4a17,#a06a24);color:#fff;padding:12px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 header h1{margin:0;font-size:18px;font-weight:700;letter-spacing:.5px;}
 header .sub{opacity:.85;font-size:12px;}
 header select{margin-left:auto;padding:6px 8px;border-radius:8px;border:1px solid #d9c08a;background:#fffdf6;font-size:14px;}
 .toolbar{display:flex;gap:10px;padding:10px 18px;flex-wrap:wrap;align-items:center;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5;}
-#q{flex:1 1 280px;min-width:200px;padding:9px 12px;border-radius:10px;border:1px solid var(--line);font-size:15px;background:var(--card);}
+#q{flex:1 1 280px;min-width:200px;padding:10px 12px;min-height:44px;border-radius:10px;border:1px solid var(--line);font-size:16px;background:var(--card);}
 .count{color:var(--muted);font-size:13px;white-space:nowrap;}
 .wrap{display:grid;grid-template-columns:230px 320px 1fr;gap:0;min-height:calc(100vh - 120px);}
 .panel{overflow:auto;}
 .panel h3{font-size:12px;letter-spacing:1px;color:var(--muted);margin:0;padding:10px 14px 4px;text-transform:uppercase;}
 #cats{background:#f6efdd;border-right:1px solid var(--line);}
-.cat{padding:7px 14px;cursor:pointer;font-size:13.5px;display:flex;justify-content:space-between;border-left:3px solid transparent;}
+.cat{padding:10px 14px;min-height:44px;align-items:center;cursor:pointer;font-size:13.5px;display:flex;justify-content:space-between;border-left:3px solid transparent;}
 .cat:hover{background:#efe4c8;}
 .cat.on{background:#fff;border-left-color:var(--amber);font-weight:600;}
 .cat .num{color:var(--muted);font-size:11px;margin-top:1px;}
 #list{background:#fff;border-right:1px solid var(--line);}
-.st{padding:9px 14px;cursor:pointer;border-bottom:1px solid #f3ecdd;}
+.st{padding:10px 14px;min-height:44px;cursor:pointer;border-bottom:1px solid #f3ecdd;}
 .st:hover{background:#fbf5e8;}
 .st.on{background:#f3e7cd;box-shadow:inset 3px 0 0 var(--amber2);}
 .st .cod{color:var(--amber);font-weight:700;font-size:12px;letter-spacing:.5px;}
@@ -82,11 +82,11 @@ header select{margin-left:auto;padding:6px 8px;border-radius:8px;border:1px soli
 .st .tiny{color:var(--muted);font-size:11px;margin-top:2px;}
 #detail{background:var(--card);padding:18px 22px;max-width:900px;}
 #btnMenu,#btnCats,#btnList,#chipsBar,#dim{display:none;}
-.minibtn{background:#fff;border:1px solid var(--line);border-radius:10px;padding:7px 11px;font-size:13.5px;cursor:pointer;color:#5d4a20;white-space:nowrap;}
+.minibtn{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-height:44px;font-size:14px;cursor:pointer;color:#5d4a20;white-space:nowrap;}
 .minibtn:active{background:#f3e7cd;}
 .chips{display:none;align-items:center;gap:6px;padding:8px 12px;overflow-x:auto;background:#fff;border-bottom:1px solid var(--line);}
 #chipsBar.on{display:flex;}
-.chip{flex:0 0 auto;background:#f3e7cd;border:1px solid #e0d0ac;border-radius:999px;padding:4px 11px;font-size:12.5px;cursor:pointer;color:#5d4a20;white-space:nowrap;}
+.chip{flex:0 0 auto;background:#f3e7cd;border:1px solid #e0d0ac;border-radius:999px;padding:8px 12px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;font-size:12.5px;cursor:pointer;color:#5d4a20;white-space:nowrap;}
 .chip.sel{background:var(--amber);border-color:var(--amber);color:#fff;}
 @media (max-width:1000px){
   .wrap{display:block;}
@@ -96,11 +96,12 @@ header select{margin-left:auto;padding:6px 8px;border-radius:8px;border:1px soli
   #dim{position:fixed;inset:0;background:rgba(50,35,10,.32);z-index:35;display:none;}
   #dim.on{display:block;}
   #btnMenu{display:inline-block;}
-  header select, header .sub{display:none;}
+  header select#edition, header .sub{display:none;}
+  #lang{margin-left:auto;min-height:44px;font-size:14px;}
   header h1{font-size:16px;}
   #detail{padding:14px;}
   .menu-head{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);padding:10px 14px;font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;z-index:1;}
-  .editem{padding:9px 14px;font-size:14px;cursor:pointer;border-bottom:1px solid #f3ecdd;}
+  .editem{padding:10px 14px;min-height:44px;display:flex;align-items:center;font-size:14px;cursor:pointer;border-bottom:1px solid #f3ecdd;}
   .editem.on{background:#f3e7cd;color:var(--amber);font-weight:600;}
 }
 .hero{border-bottom:2px solid var(--amber2);padding-bottom:10px;margin-bottom:12px;}
@@ -122,15 +123,23 @@ ul{line-height:1.75;font-size:14.5px;padding-left:22px;margin:6px 0;}
 .empty{color:var(--muted);padding:30px 18px;text-align:center;font-size:14px;}
 footer{color:var(--muted);font-size:11.5px;padding:10px 18px;border-top:1px solid var(--line);background:#fff;line-height:1.6;}
 b{color:#7a4f00;}
+#tagline{background:#fffdf8;color:var(--muted);font-size:12.5px;padding:7px 18px;border-bottom:1px solid var(--line);line-height:1.4;}
+.errbar{display:none;background:#7a1f1f;color:#fff;padding:10px 16px;font-size:13.5px;line-height:1.5;}
+.errbar.on{display:block;}
+.errbar button{margin-left:10px;background:#fff;color:#7a1f1f;border:0;border-radius:8px;padding:8px 12px;font-size:14px;cursor:pointer;}
+noscript p{background:#fff3cd;color:#664d03;margin:0;padding:12px 18px;font-size:14px;line-height:1.5;}
 </style>
 </head>
 <body>
+<noscript><p>需要启用 JavaScript 才能使用本页 / JavaScript is required to use this page.</p></noscript>
+<div id="errbar" class="errbar"><span id="errmsg"></span><button type="button" id="errreload">刷新 / Reload</button></div>
 <header>
   <button class="minibtn" id="btnMenu" type="button" aria-label="菜单">☰</button>
   <h1 id="appTitle">BJCP Style Lookup</h1>
   <span class="sub" id="sub"></span>
   <select id="edition"></select>
 </header>
+<div id="tagline"></div>
 <div class="toolbar">
   <input id="q" type="search" placeholder="">
   <span class="count" id="count"></span>
@@ -153,7 +162,22 @@ var ZH = P.zh || {};
 var CAT_ZH = P.cats || {};
 var SEC_ZH = P.sec || {};
 var HAS_ZH = !!(P.zh && Object.keys(P.zh).length);
-var LANG = HAS_ZH ? 'zh' : 'en';
+var LANG = (function(){
+  if (!HAS_ZH) return 'en';
+  try {
+    var m = /[?&]lang=(zh|en)/.exec(window.location.search || '');
+    if (m) return m[1];
+  } catch (e) {}
+  try {
+    var saved = window.localStorage.getItem('bjcp_lang');
+    if (saved === 'zh' || saved === 'en') return saved;
+  } catch (e) {}
+  try {
+    var langs = navigator.languages || [navigator.language || ''];
+    for (var i = 0; i < langs.length; i++){ if (/^zh(\b|-|_)/i.test(langs[i])) return 'zh'; }
+  } catch (e) {}
+  return 'en';
+})();
 var ED = 'bjcp-2021-beer', catAll = true, curCat = null, sel = null;
 var byEdition = {}, catsByEdition = {};
 DATA.editions.forEach(function(e){ byEdition[e.key] = []; catsByEdition[e.key] = []; });
@@ -162,8 +186,8 @@ DATA.styles.forEach(function(s){ byEdition[s.e].push(s); });
 
 var ED_ZH = {'bjcp-2021-beer':'BJCP 2021 啤酒风格指南（现行）','bjcp-2015-mead':'BJCP 2015 蜂蜜酒风格指南（现行）','bjcp-2025-cider':'BJCP 2025 苹果酒风格指南（现行）','bjcp-2015-beer':'BJCP 2015 啤酒风格指南（旧版）','bjcp-2015-cider':'BJCP 2015 苹果酒风格指南（旧版）'};
 var UI = {
-  en: {title:'BJCP Style Lookup (local)', appTitle:'🍺 BJCP Style Lookup', sub:'Local database', ph:'Search code / name / examples / tags, e.g. 21A, IPA, imperial…', cats:'Categories', styles:'Styles', empty:'Pick a category, or search', nohit:'No matching style', of:'styles', andOf:'/ total ', units:'styles', examples:'Commercial Examples', tags:'Tags', og:'OG', fg:'FG', ibu:'IBU', srm:'SRM', abv:'ABV', ogU:'original gravity', fgU:'final gravity', ibuU:'IBU', srmU:'SRM color', abvU:'alcohol %vol', notset:'No official fixed range (see text below)', zh:'中文', en:'English', foot:'Data: official BJCP Style Guidelines (styles.bjcp.org / github.com/bjcp/styles), generated locally. Content © BJCP, Inc. — personal / study use only; do not sell or repost reformatted versions online.', by:'language', gen:'generated'},
-  zh: {title:'BJCP 风格查询（本地）', appTitle:'🍺 BJCP 风格查询（本地）', sub:'本地数据库', ph:'搜索风格码 / 名称 / 商业例子 / 标签，如 21A、IPA、Imperial…', cats:'分类', styles:'风格', empty:'选择左侧分类或搜索风格', nohit:'没有匹配的风格', of:'个风格', andOf:' / 共 ', units:'个风格', examples:'商业例子', tags:'标签', og:'OG', fg:'FG', ibu:'IBU', srm:'SRM', abv:'ABV', ogU:'原麦汁比重', fgU:'终麦汁比重', ibuU:'苦度 IBU', srmU:'色度 SRM', abvU:'酒精度 %vol', notset:'官方未设固定范围（见下方数值说明）', zh:'中文（译文）', en:'English（原文）', foot:'数据来源：BJCP 官方风格指南（styles.bjcp.org / github.com/bjcp/styles），本地生成。内容 © BJCP, Inc.，仅限个人/学习使用；请勿出售或公开转载重排版本。', by:'语言', gen:'本地生成于'},
+  en: {title:'BJCP Style Lookup (local)', tagline:'Look up BJCP styles: descriptions, stats, comparisons.', appTitle:'🍺 BJCP Style Lookup', sub:'Local database', ph:'Search code / name / examples / tags, e.g. 21A, IPA, imperial…', cats:'Categories', styles:'Styles', empty:'Pick a category, or search', nohit:'No matching style', of:'styles', andOf:'/ total ', units:'styles', examples:'Commercial Examples', tags:'Tags', og:'OG', fg:'FG', ibu:'IBU', srm:'SRM', abv:'ABV', ogU:'original gravity', fgU:'final gravity', ibuU:'IBU', srmU:'SRM color', abvU:'alcohol %vol', notset:'No official fixed range (see text below)', zh:'中文', en:'English', foot:'Data: official BJCP Style Guidelines (styles.bjcp.org / github.com/bjcp/styles), generated locally. Content © BJCP, Inc. — personal / study use only; do not sell or repost reformatted versions online.', by:'language', gen:'generated'},
+  zh: {title:'BJCP 风格查询（本地）', tagline:'查 BJCP 风格：特点、参数与对比', appTitle:'🍺 BJCP 风格查询（本地）', sub:'本地数据库', ph:'搜索风格码 / 名称 / 商业例子 / 标签，如 21A、IPA、Imperial…', cats:'分类', styles:'风格', empty:'选择左侧分类或搜索风格', nohit:'没有匹配的风格', of:'个风格', andOf:' / 共 ', units:'个风格', examples:'商业例子', tags:'标签', og:'OG', fg:'FG', ibu:'IBU', srm:'SRM', abv:'ABV', ogU:'原麦汁比重', fgU:'终麦汁比重', ibuU:'苦度 IBU', srmU:'色度 SRM', abvU:'酒精度 %vol', notset:'官方未设固定范围（见下方数值说明）', zh:'中文（译文）', en:'English（原文）', foot:'数据来源：BJCP 官方风格指南（styles.bjcp.org / github.com/bjcp/styles），本地生成。内容 © BJCP, Inc.，仅限个人/学习使用；请勿出售或公开转载重排版本。', by:'语言', gen:'本地生成于'},
   keys: {en: {'overall impression':'Overall Impression','aroma':'Aroma','appearance':'Appearance','flavor':'Flavor','mouthfeel':'Mouthfeel','comments':'Comments','history':'History','characteristic ingredients':'Characteristic Ingredients','ingredients':'Ingredients','style comparison':'Style Comparison','entry instructions':'Entry Instructions','vital statistics':'Vital Statistics','aroma/flavor':'Aroma/Flavor','varieties':'Varieties','aroma, appearance, flavor, mouthfeel':'Aroma, Appearance, Flavor, Mouthfeel','currently defined types':'Currently Defined Types','strength classifications':'Strength Classifications','specialty ipa: belgian ipa':'Specialty IPA: Belgian IPA','specialty ipa: black ipa':'Specialty IPA: Black IPA','specialty ipa: brown ipa':'Specialty IPA: Brown IPA','specialty ipa: red ipa':'Specialty IPA: Red IPA','specialty ipa: rye ipa':'Specialty IPA: Rye IPA','specialty ipa: white ipa':'Specialty IPA: White IPA','specialty ipa: brut ipa':'Specialty IPA: Brut IPA'}, zh: {}},
 };
 var SEC_EN = UI.keys.en;
@@ -322,8 +346,10 @@ function renderDetail(){
 }
 function setChrome(){
   document.title = T('title');
+  try { document.documentElement.lang = (LANG === 'zh' ? 'zh-CN' : 'en'); } catch (e) {}
   document.getElementById('appTitle').textContent = T('appTitle');
   document.getElementById('dempty').textContent = T('empty');
+  document.getElementById('tagline').textContent = T('tagline');
   document.getElementById('sub').textContent = T('sub') + ' · ' + DATA.styles.length + ' ' + (LANG === 'zh' ? T('of') : T('units')) + ' · ' + DATA.editions.length + ' ' + (LANG === 'zh' ? '版本' : 'editions');
   document.getElementById('q').placeholder = T('ph');
   document.getElementById('cath3').textContent = T('cats');
@@ -358,7 +384,20 @@ function renderChips(list){
     (function(s, el){ el.onclick = function(){ sel = s; closeDrawers(); renderList(); scrollToDetail(); }; })(items[i], bar.children[i]);
   }
 }
+function showFatal(msg){
+  var bar = document.getElementById('errbar');
+  var el = document.getElementById('errmsg');
+  if (!bar || !el) return;
+  el.textContent = msg || '页面加载出错，请刷新 / Something went wrong. Please reload.';
+  bar.className = 'errbar on';
+}
+if (typeof window !== 'undefined') {
+  window.addEventListener('error', function(){ showFatal(); });
+  window.addEventListener('unhandledrejection', function(){ showFatal(); });
+}
 function init(){
+  if (!DATA || !DATA.styles || !DATA.styles.length){ showFatal('数据未能加载，请刷新或换浏览器 / Data failed to load. Please reload or try another browser.'); return; }
+  var rb = document.getElementById('errreload'); if (rb) rb.onclick = function(){ location.reload(); };
   var edSel = document.getElementById('edition');
   DATA.editions.forEach(function(e){
     var o = document.createElement('option');
@@ -374,7 +413,7 @@ function init(){
     var o2 = document.createElement('option'); o2.value = 'en'; o2.textContent = 'English（原文）';
     langSel.appendChild(o1); langSel.appendChild(o2);
     langSel.value = LANG;
-    langSel.onchange = function(){ LANG = langSel.value; sel = null; setChrome(); renderCats(); renderList(); };
+    langSel.onchange = function(){ LANG = langSel.value; try { window.localStorage.setItem('bjcp_lang', LANG); } catch (e) {} sel = null; setChrome(); renderCats(); renderList(); };
     edSel.parentNode.insertBefore(langSel, edSel);
   }
   var q = document.getElementById('q');
@@ -385,7 +424,7 @@ function init(){
   setChrome();
   renderCats(); renderList();
 }
-init();
+try { init(); } catch (e) { showFatal(); }
 </script>
 </body>
 </html>
