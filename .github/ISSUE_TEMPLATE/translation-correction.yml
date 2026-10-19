@@ -1,0 +1,89 @@
+name: Translation correction / 翻译纠错
+description: Report a translation issue or a content mismatch. 反馈中文翻译问题或内容不一致。
+title: "[translation] <style code> - <short summary>"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the translation!
+        感谢帮忙改进译文！
+
+        Please keep it factual and include the source (official English text)
+        when possible. Do not include personal or sensitive information.
+        请尽量附上官方英文原文作为依据；不要填写个人或敏感信息。
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Edition / 版本
+      options:
+        - 2021 Beer / 2021 啤酒
+        - 2015 Mead / 2015 蜂蜜酒
+        - 2025 Cider / 2025 苹果酒
+    validations:
+      required: true
+  - type: input
+    id: style
+    attributes:
+      label: Style code and name / 风格代码与名称
+      placeholder: e.g. 21A American IPA
+    validations:
+      required: true
+  - type: dropdown
+    id: section
+    attributes:
+      label: Section / 出现位置
+      options:
+        - Overall Impression / 总体印象
+        - Aroma / 香气
+        - Appearance / 外观
+        - Flavor / 风味
+        - Mouthfeel / 口感
+        - Comments / 说明
+        - History / 历史
+        - Characteristic Ingredients / 特征原料
+        - Style Comparison / 风格对比
+        - Style Name / 风格名
+        - Category Name / 分类名
+        - UI Label / 界面文字
+        - Other / 其他
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current Chinese text / 当前中文
+      description: Copy the text as shown on the site. / 粘贴网站上现在的文字。
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: suggested
+    attributes:
+      label: Suggested correction / 建议修改
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence / 依据（optional 可选）
+      description: Official English original, style-guide page link, or reasoning. / 官方英文原文、指南页链接或理由。
+      render: text
+    validations:
+      required: false
+  - type: input
+    id: page
+    attributes:
+      label: Page URL / 页面链接（optional 可选）
+      placeholder: https://...
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Checklist / 确认
+      options:
+        - label: I searched existing issues first. / 我已先搜索过已有 issue。
+          required: true
+        - label: I have not included personal or sensitive information. / 我没有填写个人或敏感信息。
+          required: true

@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Live site / 在线站点
+    url: https://bjcp.zjq.me/
+    about: Check the current translation on the live page before reporting. 提交前可先在线核对当前译文。

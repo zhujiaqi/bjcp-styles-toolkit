@@ -52,6 +52,12 @@ Cloudflare Pages setup (custom domain, Basic Auth via Pages Functions).
 Note: publishing pages that contain the full guideline text is public
 redistribution — get BJCP permission first.
 
+### Reporting translation issues
+If you spot a translation mistake (or any content mismatch), please open an
+issue using the **Translation correction / 翻译纠错** template. Include the
+style code, the current text, a suggested correction, and the official English
+source when possible. Please don't include personal or sensitive information.
+
 ### License
 Code in this repository: **MIT** (see LICENSE). The BJCP Style Guidelines
 are © BJCP, Inc. and are **not** distributed here.
@@ -90,6 +96,11 @@ python3 web/export_web.py        # 生成 web/index.html 等（仅供个人使�
 ### 部署 / 托管
 见 `cloudflare/DEPLOY-GUIDE.md`：免费、带密码的 Cloudflare Pages 方案。
 注意：把含指南全文的页面公开上线属于"公开重排"，需先取得 BJCP 许可。
+
+### 反馈翻译问题
+如果发现译文有误（或任何内容不一致），请用 **Translation correction /
+翻译纠错** 模板提交 issue，附上风格代码、当前文字、建议修改，并尽量给出官方
+英文原文作为依据。请勿填写个人或敏感信息。
 
 ### 许可
 本仓库代码：**MIT**（见 LICENSE）。BJCP 风格指南 © BJCP, Inc.，**不随本仓库分发**。
